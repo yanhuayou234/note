@@ -51,7 +51,9 @@
       点击复制按钮,复制git地址
 执行 git remote add origin git@github.com:yanhuayou234/note.git
 
-执行 git push -u orgin master 提交代码
+执行 git push -u origin master 提交代码
+
+	git add * //提交全部
 
 
 ```
