@@ -328,6 +328,35 @@ var $objTr = null //找到要定位的地方  tr
                 var form = layui.form;
                 form.render();
             });
+
+
+// select
+layui.use('form', function () {
+    var form = layui.form;
+    //监听提交
+    form.on("select", function (data) {
+        switch ($(".title").find("span.active").text()) {
+            case "待审核":
+                ajaxRcjl(token, 0, data.value)
+                break
+            case "被拒绝":
+                ajaxRcjl(token, 1, data.value)
+                break
+            default:
+                ajaxRcjl(token, 6, data.value)
+        }
+
+        // alert(data.value); // 获取选中的值
+    });
+});
+
+
+//更新 
+  layui.use("form", function () {
+            //此段代码必不可少
+            var form = layui.form;
+            form.render();
+        });
 ```
 
 #### 创建formData
@@ -377,5 +406,57 @@ mySwiper.init();//现在才初始化
 updateOnImagesReady  //当所有的内嵌图像（img标签）加载完成后Swiper会重新初始化。使用此选项需要先开启preloadImages: true
 
 grabCursor设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状。（根据浏览器形状有所不同）
+```
+
+
+
+#### 图片上传
+
+```js
+    //图片上传
+                $(".up_img").on('change', "#picture", function () {
+                    var imgFiles = $(this)[0].files;
+                    // name = $(this).val()
+                    // var fileName = getFileName(name);
+                    // $(this).prev().text(fileName);
+                    var preview = $(this).parent().next()[0];
+
+                    if (imgFiles == 0) {} else if (imgFiles.length > 5) {
+                        alert("最多上传五张图片");
+                        $(preview).find("img").remove();
+                        return;
+                    } else {
+                        if ($(preview).find("img").length > 0) {
+                            $(preview).find("img").remove();
+                        }
+                        for (i = 0; i < imgFiles.length; i++) {
+                            filePath = imgFiles[i].name;
+                            fileFormat = filePath.split('.')[1].toLowerCase();
+                            src = window.URL.createObjectURL(imgFiles[i]);
+                            if (!fileFormat.match(/png|jpg|jpeg/)) {
+                                alert('上传错误,文件格式必须为：png/jpg/jpeg')
+                                return
+                            } else {
+                                var img = document.createElement('img')
+                                img.width = 100
+                                img.height = 100
+                                img.src = src
+                                img.alt = filePath
+                                preview.appendChild(img)
+                            }
+
+                        }
+                    }
+
+                })
+
+                $(".base_yhList").find(".mart10").each(function (index, value) {
+                    $(value).find("table").each(function (idx, val) {
+                        $(val).find(".ipt_text").each(function (i, v) {
+                            $(v).css("width", v.value.length * 9)
+                        })
+                    })
+                })
+            }
 ```
 

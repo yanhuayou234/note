@@ -1,24 +1,25 @@
 成果超市官网首页 ：http://www.qqzhiku.cn    webapps_qqzhiku
 成果超市项目：http://cgzh.rrzhongbao.com    webapps_cgzh
-
+管理端 http://cgzh.rrzhongbao.com/cgzhManage/pages/Login.html
 
 军民融合
 http://39.100.50.205/junminPC/login.html
-http://39.100.50.205/jmManage/pages/index.html      
+http://39.100.50.205/jmManage/pages/index.html       system
 http://39.100.50.205/dist
+http://39.98.176.245/#/
 
- system
 
 产业园
 http://cyy.rrzhongbao.com/chanyeyuanManage/pages/Login.html
 http://cyy.rrzhongbao.com/
 
 
+svn
+ https://121.42.148.227/svn/chengguochaoshivue/trunk/web  成果超市 
+ https://121.42.148.227/svn/junminronghe/trunk/web	军民融合
+
 18514589550
-
 18701115797 曙光科技
-
-
 
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
